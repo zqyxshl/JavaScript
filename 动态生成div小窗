@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script language="javascript" src="jq.js"></script>
+
+<style>
+#createDivForInfo {width:240px;height:40px;background:#0099FF;color:#FFF;text-align:center;line-height:40px;position:fixed;top:50%;left:50%;display:none;font-size:20px;border-radius:8px;}
+</style>
+</head>
+
+<body>
+<input type="button" onclick="CreateDivForInfo('动态生成')" value="生成">
+<script>
+function CreateDivForInfo(info){
+	var infoBox = document.createElement('div');
+	infoBox.id = "createDivForInfo";
+	document.body.appendChild(infoBox);
+	$("#createDivForInfo").html(info);
+	$("#createDivForInfo").fadeIn(500);
+	setTimeout(
+		function(){
+			$("#createDivForInfo").fadeOut(500);
+			setTimeout(
+				function(){
+					document.body.removeChild(infoBox);
+				},
+				500
+			);
+			
+		},
+		2000
+	);
+	
+}
+</script>
+</body>
+</html>
